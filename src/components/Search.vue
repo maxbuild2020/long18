@@ -8,8 +8,8 @@
       <div class="search-header d-f justify-content-between align-items-center">
         <div class="input-wrap d-f raduis4">
           <span class="title">搜索</span>
-          <input type="text" />
-          <font-awesome-icon icon="search" size="lg" class="font-icon"/>
+          <input type="text" v-model="searchValue"/>
+          <font-awesome-icon icon="search" size="lg" class="font-icon"  @click="searchSubmit"/>
         </div>
         <div class="hot d-f">
           <p>热门搜索:</p>
@@ -33,7 +33,7 @@
             class="selete-item btn"
             v-for="(item,key) in items.items" :key="key"
             :class="{ selected :item.active}"
-            @click.native="select(item,index,key)"
+            @click.native="select(item.name,index,key)"
           >{{item.name}}</router-link>
         </div>
 
@@ -72,6 +72,7 @@ import axios from "axios"
 export default {
   data() {
     return {
+      searchValue:'',
       selectBox: [],
       filterBox: [],
       category:[
@@ -88,7 +89,7 @@ export default {
           name: "游戏类型",
           items:[
             {name:"全部", active:true, select:"all"},
-            {name:"3D老虎机", active:false, select:"1"},
+            {name:"3D老虎机1", active:false, select:"1"},
             {name:"老虎机", active:false, select:"2"},
             {name:"桌面游戏", active:false, select:"3"},
             {name:"纸牌", active:false, select:"4"},
@@ -98,7 +99,7 @@ export default {
             {name:"其他", active:false, select:"8"}
           ]
         },{
-          name: "游戏类型",
+          name: "游戏线路",
           items:[
             {name:"全部", active:true, select:"all"},
             {name:"1-4线", active:false, select:"1"},
@@ -115,7 +116,9 @@ export default {
         tab: "a",
         mdrender: true
       },
-      games: []
+      games: [],
+      gameResult: [],
+      checkType: false
     }
   },
   methods: {
@@ -135,31 +138,47 @@ export default {
       //   }
       // })
       let newArry = []
+
       this.category.map(items=>{
         items.items.map(item=>{
           if(item.active == true){
             newArry.push(item.select)
-            
           }
         })
       })
 
       this.selectBox = newArry
       console.log(this.selectBox[0])
-      // if (this.selectBox[0]== "all" || this.selectBox[1]== "all" || this.selectBox[2]== "all" ){
-      //   this.filterBox = this.games.filter(item => item.method == "all")
-      // }  else  (
-       
-        this.filterBox = this.games.filter(item => 
-        item.platform == this.selectBox[0] && item.type == this.selectBox[1] && item.thread == this.selectBox[2])
-      // )
+      if(this.selectBox[0] !== 'all'){
+        this.gameResult = this.games.filter( item => item.platform === this.selectBox[0] )
+      } else {
+        this.gameResult = this.games
+      }
+
+      if( this.selectBox[1] !== 'all') {
+        this.gameResult = this.gameResult.filter( item => item.type === this.selectBox[1] )
+      }
+      
+      if( this.selectBox[2] !== 'all'){
+        this.gameResult = this.gameResult.filter( item => item.thread === this.selectBox[2] )
+      }
+      console.log( JSON.stringify(this.gameResult))
+      console.log(this.gameResult)
+      this.filterBox = this.gameResult
     },
     async getData() {
       let res = await axios.get("/api/api.json");
       this.games = res.data.data
+      this.gameResult = res.data.data
       this.filterBox = this.games
       // console.log(res)
-    }
+    },
+    searchSubmit(){
+      console.log(this.searchValue)
+      // let engine = new PinyinEngine(this.games, ['name']);
+      // console.log(engine)
+    },
+
   },
   created(){
     this.getData()
@@ -212,6 +231,7 @@ export default {
         border-left: 1px solid #575757;
         text-indent: 20px;
         width: 300px;
+        color: #fff;
       }
       .font-icon{
         padding-left: 20px;

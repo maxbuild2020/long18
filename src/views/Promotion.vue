@@ -31,7 +31,7 @@
               <div class="title">
                 <p>{{promo.title}}</p>
               </div>
-              <span class="period p-a raduis4">{{ promo.deadline | timeDown}}</span>
+              <span class="period p-a raduis4">{{ promo.time }}</span>
             </div>
           </div>
         </div>
@@ -44,7 +44,7 @@
 export default {
   data() {
     return {
-      time: "",
+      timer: "",
       flag: false,
       menuIndex: 0,
       tabs: ["新手优惠", "限时优惠", "长期优惠", "往期优惠"],
@@ -53,151 +53,180 @@ export default {
           src: "https://a04front.liweiyameirong.com/cdn/A04FW/externals/img/_wms/promotion/usdt-free_pcpr.png_.webp",
           type: "0",
           title: "贴图回帖可免费获得8UST,新手优惠",
+          time:'',
           deadline: "2020-8-15 24:00"
         },
         {
           src: "https://a04front.liweiyameirong.com/cdn/A04FW/externals/img/_wms/promotion/usdt-free_pcpr.png_.webp",
           type: "0",
           title: "贴图回帖可免费获得8UST,新手优惠",
+          time:'',
           deadline: "unlimited"
         },
         {
           src: "https://a04front.liweiyameirong.com/cdn/A04FW/externals/img/_wms/promotion/usdt-free_pcpr.png_.webp",
           type: "0",
           title: "贴图回帖可免费获得8UST,新手优惠",
+          time:'',
           deadline: "unlimited"
         },
         {
           src: "https://a04front.liweiyameirong.com/cdn/A04FW/externals/img/_wms/promotion/usdt-free_pcpr.png_.webp",
           type: "0",
           title: "贴图回帖可免费获得8UST,新手优惠",
+          time:'',
           deadline: "unlimited"
         },
         {
           src: "https://a04front.liweiyameirong.com/cdn/A04FW/externals/img/_wms/promotion/5136c05480484fe5c5ff4288b5e88ebf.jpg_.webp",
           type: "1",
           title: "贴图回帖可免费获得8UST,限时优惠",
+          time:'',
           deadline: "2020-8-10 24:00"
         },
         {
           src: "https://a04front.liweiyameirong.com/cdn/A04FW/externals/img/_wms/promotion/5136c05480484fe5c5ff4288b5e88ebf.jpg_.webp",
           type: "1",
           title: "贴图回帖可免费获得8UST,限时优惠",
+          time:'',
           deadline: "2020-9-11 24:00"
         },
         {
           src: "https://a04front.liweiyameirong.com/cdn/A04FW/externals/img/_wms/promotion/5136c05480484fe5c5ff4288b5e88ebf.jpg_.webp",
           type: "1",
           title: "贴图回帖可免费获得8UST,限时优惠",
+          time:'',
           deadline: "2020-10-12 24:00"
         },
         {
           src: "https://a04front.liweiyameirong.com/cdn/A04FW/externals/img/_wms/promotion/5136c05480484fe5c5ff4288b5e88ebf.jpg_.webp",
           type: "1",
           title: "贴图回帖可免费获得8UST,限时优惠",
+          time:'',
           deadline: "2020-11-13 24:00"
         },
         {
           src: "https://a04front.liweiyameirong.com/cdn/A04FW/externals/img/_wms/top-banner/85035504c032ec90c708661bbc6fbb81.jpg_.webp",
           type: "2",
           title: "贴图回帖可免费获得8UST,长期优惠",
+          time:'',
           deadline: "2020-12-10 24:00"
         },
         {
           src: "https://a04front.liweiyameirong.com/cdn/A04FW/externals/img/_wms/top-banner/85035504c032ec90c708661bbc6fbb81.jpg_.webp",
           type: "2",
           title: "贴图回帖可免费获得8UST,长期优惠",
+          time:'',
           deadline: "unlimited"
         },
         {
           src: "https://a04front.liweiyameirong.com/cdn/A04FW/externals/img/_wms/top-banner/85035504c032ec90c708661bbc6fbb81.jpg_.webp",
           type: "2",
           title: "贴图回帖可免费获得8UST,长期优惠",
+          time:'',
           deadline: "unlimited"
         },
         {
           src: "https://a04front.liweiyameirong.com/cdn/A04FW/externals/img/_wms/promotion/f3ccdd27d2000e3f9255a7e3e2c48800.jpg_.webp",
           type: "3",
           title: "贴图回帖可免费获得8UST,已过期",
+          time:'',
           deadline: "expired"
         },
         {
           src: "https://a04front.liweiyameirong.com/cdn/A04FW/externals/img/_wms/promotion/f3ccdd27d2000e3f9255a7e3e2c48800.jpg_.webp",
           type: "3",
           title: "贴图回帖可免费获得8UST,已过期",
+          time:'',
           deadline: "expired"
         },
         {
           src: "https://a04front.liweiyameirong.com/cdn/A04FW/externals/img/_wms/promotion/f3ccdd27d2000e3f9255a7e3e2c48800.jpg_.webp",
           type: "3",
           title: "贴图回帖可免费获得8UST,已过期",
+          time:'',
           deadline: "expired"
         },
         {
           src: "https://a04front.liweiyameirong.com/cdn/A04FW/externals/img/_wms/promotion/f3ccdd27d2000e3f9255a7e3e2c48800.jpg_.webp",
           type: "3",
           title: "贴图回帖可免费获得8UST,已过期",
+          time:'',
           deadline: "expired"
         },
         {
           src: "https://a04front.liweiyameirong.com/cdn/A04FW/externals/img/_wms/promotion/f3ccdd27d2000e3f9255a7e3e2c48800.jpg_.webp",
           type: "3",
           title: "贴图回帖可免费获得8UST,已过期",
+          time:'',
           deadline: "expired"
         },
         {
           src: "https://a04front.liweiyameirong.com/cdn/A04FW/externals/img/_wms/promotion/f3ccdd27d2000e3f9255a7e3e2c48800.jpg_.webp",
           type: "3",
           title: "贴图回帖可免费获得8UST,已过期",
+          time:'',
           deadline: "expired"
         },
         {
           src: "https://a04front.liweiyameirong.com/cdn/A04FW/externals/img/_wms/promotion/f3ccdd27d2000e3f9255a7e3e2c48800.jpg_.webp",
           type: "3",
           title: "贴图回帖可免费获得8UST,已过期",
+          time:'',
           deadline: "expired"
         },
         {
           src: "https://a04front.liweiyameirong.com/cdn/A04FW/externals/img/_wms/promotion/f3ccdd27d2000e3f9255a7e3e2c48800.jpg_.webp",
           type: "3",
           title: "贴图回帖可免费获得8UST,已过期",
+          time:'',
           deadline: "expired"
         }
       ]
     };
   },
+  mounted() {
+    this.timer = setInterval(this.getTime, 1000);
+  },
+  beforeDestroy() {
+    clearInterval(this.timer);
+  },
   methods: {
     menuShow(index) {
       this.menuIndex = index;
-    }
-  },
-  filters: {
+    },
+    getTime(){
+      let promos = this.promos
+      for( let i of this.promos){
+        i['time'] = this.timeDown(i['deadline'])
+        // console.log(this.timeDown(i['deadline']))
+      }
+      this.promos = promos
+    },
     timeDown(value) {
-      // setInterval(() => {
-        if (value == "unlimited") {
-          return "长期活动";
-        } else if (value == "expired") {
+      if (value === "unlimited") {
+        return "长期活动";
+      } else if (value === "expired") {
+        return "已结束";
+      } else {
+        const endTime = new Date(value);
+        const nowTime = new Date();
+        const msec = endTime - nowTime;
+        if (msec <= 0) {
           return "已结束";
         } else {
-          const endTime = new Date(value);
-          const nowTime = new Date();
-          const msec = endTime - nowTime;
-          if (msec <= 0) {
-            return "已结束";
-          } else {
-            let day = parseInt(msec / 1000 / 60 / 60 / 24);
-            let hr = parseInt((msec / 1000 / 60 / 60) % 24);
-            let min = parseInt((msec / 1000 / 60) % 60);
-            let sec = parseInt((msec / 1000) % 60);
-            hr = hr > 9 ? hr : "0" + hr;
-            min = min > 9 ? min : "0" + min;
-            sec = sec > 9 ? sec : "0" + sec;
-            return `截止日期: ${day}天 ${hr}小时 ${min}分钟 ${sec}秒`;
-          }
+          let day = parseInt(msec / 1000 / 60 / 60 / 24);
+          let hr = parseInt((msec / 1000 / 60 / 60) % 24);
+          let min = parseInt((msec / 1000 / 60) % 60);
+          let sec = parseInt((msec / 1000) % 60);
+          hr = hr > 9 ? hr : "0" + hr;
+          min = min > 9 ? min : "0" + min;
+          sec = sec > 9 ? sec : "0" + sec;
+          return `截止日期: ${day}天 ${hr}小时 ${min}分钟 ${sec}秒`;
         }
-      // }, 1000);
+      }
     }
-  }
+  },
 }
 </script>
 

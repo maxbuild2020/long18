@@ -7,19 +7,7 @@
         </div>
         <div class="main1 d-f">
           <div class="banner">
-            <div class="swiper-wrapper">
-              <swiper :options="swiperOption">
-                <swiper-slide v-for="banner of banners" :key="banner">
-                  <img class="swiper-img" :src="banner" />
-                </swiper-slide>
-                <div class="swiper-button-prev d-f align-items-center" slot="button-prev">
-                <font-awesome-icon icon="chevron-left" class="fonticon chevron-left"/>
-                </div>
-                <div class="swiper-button-next d-f align-items-center" slot="button-next">
-                <font-awesome-icon icon="chevron-right" class="fonticon chevron-right"/>
-                </div>
-              </swiper>
-            </div>
+            <HomeSwiper></HomeSwiper>
           </div>
           <div class="lives hover-box raduis4 p-r">
             <div class="lives-bg1 origin-img"></div>
@@ -64,7 +52,7 @@
           <div class="sports hover-box p-r">
             <div class="sports-bg1 origin-img"></div>
             <div class="hover p-a d-f justify-content-center align-items-center">
-              <div class="hover-img d-f align-items-center" style="margin-right:20px">
+              <div class="hover-img d-f align-items-center">
                 <img src="https://a04front.liweiyameirong.com/cdn/A04FW/assets/img/main-level1-2.5c1d01c5.png_.webp" />
               </div>
               <div class="hover-btn">
@@ -86,7 +74,7 @@
           <div class="sports hover-box p-r">
             <div class="sports-bg2 origin-img"></div>
             <div class="hover p-a d-f justify-content-center align-items-center">
-              <div class="hover-img d-f align-items-center" style="margin-right:20px">
+              <div class="hover-img d-f align-items-center">
                 <img src="https://a04front.liweiyameirong.com/cdn/A04FW/assets/img/main-level1-2.5c1d01c5.png_.webp" />
               </div>
               <div class="hover-btn">
@@ -103,7 +91,7 @@
           <div class="sports hover-box p-r">
             <div class="sports-bg3 origin-img"></div>
             <div class="hover p-a d-f justify-content-center align-items-center">
-              <div class="hover-img d-f align-items-center" style="margin-right:20px">
+              <div class="hover-img d-f align-items-center">
                 <img src="https://a04front.liweiyameirong.com/cdn/A04FW/assets/img/main-level1-2.5c1d01c5.png_.webp" />
               </div>
               <div class="hover-btn">
@@ -140,36 +128,30 @@
             </div>
           </div>
           <div class="others d-f">
-            <div class="other p-r">
-              <div class="other-bg1"></div>
+            <div class="other hover-box p-r">
+              <div class="other-bg1 origin-img"></div>
               <div class="hover p-a d-f flex-direction-column justify-content-center">
-                <div class="hover-img">
-                  <img src="img/hover5.webp" />
-                </div>
                 <div class="hover-btn">
                   <button>免费试玩</button>
                 </div>
               </div>
-              <div class="other-content p-a">
+              <div class="other-content hover-content p-a">
                 <div class="title">AG电投厅</div>
                 <div class="content p-a">
                   <span class="inner-title">远程投注 极致体验</span>
                 </div>
               </div>
             </div>
-            <div class="other p-r">
-              <div class="other-bg2"></div>
+            <div class="other p-r hover-box">
+              <div class="other-bg2 origin-img"></div>
               <div class="hover p-a d-f flex-direction-column justify-content-center">
-                <div class="hover-img">
-                  <img src="img/hover5.webp" />
-                </div>
                 <div class="hover-btn">
                   <button>免费试玩</button>
                 </div>
               </div>
               <div class="other-content p-a">
                 <div class="title">彩票</div>
-                <div class="content p-a">
+                <div class="content hover-content p-a">
                   <div class="tags d-f">
                     <span class="tag raduis4">六合彩</span>
                     <span class="tag raduis4">时时彩</span>
@@ -225,7 +207,7 @@
                 <p>电子游戏奖金奖池</p>
                 <span>{{amount | currency('¥')}}</span>
               </div>
-              <div class="game-pool-bottom p-r"><span class="p-a">进入电邮大厅</span></div>
+              <div class="game-pool-bottom p-r"><span class="p-a">进入电游大厅</span></div>
             </div>
             <div class="right-content">
               <div class="title">高爆</div>
@@ -283,11 +265,7 @@
               </div>
             </div>
          
-         
           </div>
-
-
-
 
         </div>
       </div>
@@ -297,7 +275,11 @@
 
 <script>
 import {currency} from '@/unit/currency'
+import HomeSwiper from '@/components/Swiper'
 export default {
+  components:{
+    HomeSwiper
+  },
   data() {
     return {
       banners: [
@@ -306,12 +288,15 @@ export default {
         "https://a04front.liweiyameirong.com/cdn/A04FW/externals/img/_wms/top-banner/usdt2-pcbn.png"
       ],
       swiperOption: {
-        pagination: ".swiper-pagination",
+        autoplay: 1000,
         loop: true,
-        autoplay: 2000,
         prevButton: ".swiper-button-prev",
-        nextButton: ".swiper-button-next"
+        nextButton: ".swiper-button-next",
       },
+      isActive: false,
+      amount: 289641490,
+      timerAmount: '',
+      timerBackgaround: '',
       ranks: [
         {
           rank: "NO.1",
@@ -385,25 +370,22 @@ export default {
         }
       ],
       ranksIndex: 0,
-      isActive: false,
-      amount: 289641490
-    };
+    }
   },
   filters:{
     currency
   },
-  methods:{
-    toggle() {
-      setInterval(() => {
-        this.isActive = !this.isActive;
-      }, 1000);
-    }
-  },
   mounted(){
-    this.toggle()
-    setInterval(() => {
-        this.amount += 0.01
-      }, 50);
+    this.timerBackgaround = setInterval(() => {
+      this.isActive = !this.isActive;
+    }, 1000);
+    this.timerAmount = setInterval(() => {
+      this.amount += 0.01
+    }, 50);  
+  },
+  beforeDestroy(){
+    clearInterval (this.timerBackgaround)
+    clearInterval (this.timerAmount)
   }
 };
 </script>
@@ -927,18 +909,5 @@ export default {
   }
 }
 
-.swiper-container {
-  width: 440px;
-  height: 187px;
-  .fonticon {
-    padding: 8px 6px;
-    background: rgba($color: white, $alpha: 0.5);
-  }
-  .chevron-left {
-    border-radius: 0 4px 4px 0;
-  }
-  .chevron-right {
-    border-radius: 4px 0 0 4px;
-  }
-}
+
 </style>

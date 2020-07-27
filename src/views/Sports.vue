@@ -8,7 +8,7 @@
       </div>
 
       <div class="banner">
-         <swiper :options="swiperOption" :not-next-tick="notNextTick" ref="mySwiper">
+         <swiper :options="swiperOption"  ref="mySwiper">
           <swiper-slide><img src="https://a04front.liweiyameirong.com/cdn/A04FW/externals/img/_wms/main_banner/shabah-pc.png" alt=""></swiper-slide>
           <swiper-slide><img src="https://a04front.liweiyameirong.com/cdn/A04FW/externals/img/_wms/main_banner/sport2.jpg" alt=""></swiper-slide>
           <!-- Optional controls -->
@@ -112,8 +112,8 @@ export default {
     return{
       swiperOption: {
         autoplay: 1000,
-        pagination: '.swiper-pagination',
         loop: true,
+        pagination: '.swiper-pagination'
       }
     }
   }

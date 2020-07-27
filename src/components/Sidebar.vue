@@ -106,7 +106,7 @@ export default {
 <style scoped lang="scss">
 .sidebar-star{
   right: 13px;
-  top: 47px;
+  top: 15px;
   position: fixed;
   z-index: 2;
   .star{
@@ -126,7 +126,7 @@ export default {
 .sidebar-tools{
   z-index: 2;
   right: 13px;
-  top: 127px;
+  top: 95px;
   position: fixed;
   .smallist{
     width: 50px!important;

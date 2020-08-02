@@ -91,6 +91,7 @@ export default {
 }
 .lsidebar{
   width: 160px;
+  min-width: 160px;
   margin-left: 5px;
   height: 780px;
   background: #2b2b32;

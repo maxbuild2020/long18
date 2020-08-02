@@ -13,6 +13,7 @@ import Header from '@/components/Header.vue'
 import Sidebar from '@/components/Sidebar.vue'
 import Content from '@/components/Content.vue'
 import Footer from '@/components/Footer.vue'
+// import axios from 'axios';
 
 export default {
   components: {
@@ -22,6 +23,7 @@ export default {
     Footer
   }
 }
+
 </script>
 <style lang="scss">
 #app {
@@ -32,6 +34,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   background: #232429;
+  width: 100%;
 }
 
 #nav {

@@ -13,15 +13,18 @@ Vue.use(VueRouter)
 
   const routes = [
   {
-    path: '/', redirect: '/home'
+    path: '/', redirect: '/home',
   },
   {
     path: '/home',
     component: Home,
-    // children: [{
-    //   path: '',
-    //   component: Home
-    // }]
+    beforeEnter: (to, from, next) => {
+      if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        window.location.href = "https://www.google.com/search?q=%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%B3%E8%BD%AC&rlz=1C5CHFA_enPH883PH883&oq=%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B7%B3%E8%BD%AC&aqs=chrome..69i57j0l2.6129j0j7&sourceid=chrome&ie=UTF-8"
+        return
+      }
+      next()
+    }
   },
   {
     path: '/promotion',
@@ -51,10 +54,6 @@ Vue.use(VueRouter)
       component: Search
     }]
   }
-
-
-
-
 ]
 
 const router = new VueRouter({
@@ -62,5 +61,7 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+
 
 export default router

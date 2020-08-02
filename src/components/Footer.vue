@@ -3,12 +3,12 @@
     <div class="footer-container d-f flex-direction-column">
       <div class="content d-f ">
         <div class="left d-f align-items-center p-r">
-          <div class="lisence"><img src="https://a04front.liweiyameirong.com/cdn/A04FW/assets/img/license-icon.aba6be03.png_.webp" alt=""></div>
+          <div class="lisence"></div>
           <span>菲律宾PAGCOR合法博彩执照</span>
         </div>
         <div class="right d-f align-items-center">
           <span>尊龙支付合作渠道</span>
-          <div class="corporate"><img src="https://a04front.liweiyameirong.com/cdn/A04FW/assets/img/payment-icon.2b0bc1e3.png_.webp" alt=""></div>
+          <div class="corporate"><img src="" alt=""></div>
         </div>
       </div>
       <div class="text-content">
@@ -47,6 +47,8 @@ export default {
           margin: 0 10px 0 20px;
           height: 58px;
           width: 40px;
+          background: url("https://a04front.liweiyameirong.com/cdn/A04FW/assets/img/license-icon.aba6be03.png_.webp") no-repeat;
+          background-size: 100%;
         }
         span::after{
           content: "|";
@@ -60,8 +62,10 @@ export default {
         height: 75px;
         .corporate{
           width: 289px;
+          height: 21px;
           margin-left: 21px;
-
+          background: url("https://a04front.liweiyameirong.com/cdn/A04FW/assets/img/payment-icon.2b0bc1e3.png_.webp") no-repeat;
+          background-size: 100%;
         }
       }
       img{

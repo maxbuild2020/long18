@@ -43,7 +43,7 @@
       <div class="search-list">
         <div class="result">
           搜索结果如下：有
-          <span>1233</span> 款游戏符合要求
+          <span>{{filterBox.length}}</span> 款游戏符合要求
         </div>
         <div class="result-list p-r d-f flex-wrap-wrap">
           <div
@@ -68,13 +68,15 @@
 
 <script>
 // category.forEach(item=>item.index = -1);
-import axios from "axios"
+// import axios from "axios"
 export default {
   data() {
     return {
       searchValue:'',
       selectBox: [],
       filterBox: [],
+      games: [],
+      gameResult: [],
       category:[
         {
           name: "游戏平台",
@@ -116,8 +118,6 @@ export default {
         tab: "a",
         mdrender: true
       },
-      games: [],
-      gameResult: [],
       checkType: false
     }
   },
@@ -166,22 +166,23 @@ export default {
       console.log(this.gameResult)
       this.filterBox = this.gameResult
     },
-    async getData() {
-      let res = await axios.get("/api/api.json");
-      this.games = res.data.data
-      this.gameResult = res.data.data
-      this.filterBox = this.games
-      // console.log(res)
-    },
+    // async getData() {
+    //   let res = await axios.get("/api/api.json");
+    //   this.games = res.data.data
+    //   this.gameResult = res.data.data
+    //   this.filterBox = this.games
+    // },
     searchSubmit(){
       console.log(this.searchValue)
       // let engine = new PinyinEngine(this.games, ['name']);
       // console.log(engine)
     },
-
   },
-  created(){
-    this.getData()
+  mounted(){
+    this.games = this.$store.getters.games
+    this.gameResult = this.$store.getters.games
+    this.filterBox = this.$store.getters.filterBox
+    // console.log(this.filterBox)
   }
 };
 

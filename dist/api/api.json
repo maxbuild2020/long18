@@ -1,0 +1,25 @@
+{
+    "success":true,
+    "data": [
+        { "name": "3D老虎机1", "platform": "AG", "type": "1", "thread": "1" , "method":"all"},
+        { "name": "老虎机1", "platform": "AG", "type": "2", "thread": "2" , "method":"all"},
+        { "name": "桌面游戏1", "platform": "AG", "type": "3", "thread": "3" , "method":"all"},
+        { "name": "纸牌1", "platform": "AG", "type": "4", "thread": "4" , "method":"all"},
+        { "name": "3D老虎机2", "platform": "MG", "type": "1", "thread": "1" , "method":"all"},
+        { "name": "老虎机2", "platform": "MG", "type": "2", "thread": "3" , "method":"all"},
+        { "name": "桌面游戏2", "platform": "MG", "type": "3", "thread": "4" , "method":"all"},
+        { "name": "纸牌2", "platform": "MG", "type": "4", "thread": "5" , "method":"all"},
+        { "name": "视频游戏1", "platform": "MG", "type": "5", "thread": "7" , "method":"all"},
+        { "name": "3D老虎机3", "platform": "PP", "type": "1", "thread": "2" , "method":"all"},
+        { "name": "炫酷水果2", "platform": "PP", "type": "2", "thread": "4" , "method":"all"},
+        { "name": "桌面游戏3", "platform": "PP", "type": "3", "thread": "6" , "method":"all"},
+        { "name": "街机1", "platform": "PP", "type": "6", "thread": "7" , "method":"all"},
+        { "name": "赛车1", "platform": "PP", "type": "7", "thread": "1" , "method":"all"},
+        { "name": "其他1", "platform": "PP", "type": "8", "thread": "3" , "method":"all"},
+        { "name": "泰国神庙1", "platform": "PT", "type": "2", "thread": "1" , "method":"all"},
+        { "name": "纸牌3", "platform": "PT", "type": "4", "thread": "3" , "method":"all"},
+        { "name": "街机2", "platform": "PT", "type": "6", "thread": "5" , "method":"all"},
+        { "name": "其他2", "platform": "PT", "type": "8", "thread": "7" , "method":"all"},
+        { "name": "3D老虎机4", "platform": "PT", "type": "1", "thread": "1" , "method":"all"}
+      ]
+}
